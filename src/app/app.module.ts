@@ -9,8 +9,17 @@ import { MdButtonModule } from '@angular2-material/button';
 import { MdInputModule } from '@angular2-material/input';
 import { MdIconModule } from '@angular2-material/icon';
 import 'hammerjs';
+import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
+
+// Must export the config
+export const firebaseConfig = {
+  apiKey: "<your-key>",
+  authDomain: "<your-project-authdomain>",
+  databaseURL: "<your-database-URL>",
+  storageBucket: "<your-storage-bucket>"
+};
 
 @NgModule({
   declarations: [
@@ -25,7 +34,8 @@ import { AppComponent } from './app.component';
     MdCardModule,
     MdButtonModule,
     MdInputModule,
-    MdIconModule
+    MdIconModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

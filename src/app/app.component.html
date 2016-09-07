@@ -1,22 +1,17 @@
 <md-toolbar color="primary">
-  <span>Mileage Tracker</span>
+  <span>FR-S Mileage Tracker</span>
 </md-toolbar>
-<h1>
-  {{title}}
-</h1>
 
-<button md-button>FLAT</button>
-<button md-raised-button>RAISED</button>
-<button md-icon-button>
-   <md-icon class="md-24">favorite</md-icon>
-</button>
-<button md-fab>
-   <md-icon class="md-24">add</md-icon>
-</button>
-<button md-mini-fab>
-   <md-icon class="md-24">add</md-icon>
-</button>
-
-<button md-raised-button color="primary">PRIMARY</button>
-<button md-raised-button color="accent">ACCENT</button>
-<button md-raised-button color="warn">WARN</button>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    <md-card>
+      <md-card-title-group>
+        <md-card-title>{{item.ft | date}}</md-card-title>
+        <md-card-subtitle>Odometer: {{item.o}}</md-card-subtitle>
+        <md-card-subtitle>Trip: {{item.t}}</md-card-subtitle>
+        <md-card-subtitle>Gas Price: ${{item.gp}}</md-card-subtitle>
+        <md-card-subtitle>Total: ${{item.gtp}}</md-card-subtitle>
+      </md-card-title-group>
+    </md-card>
+  </li>
+</ul>
